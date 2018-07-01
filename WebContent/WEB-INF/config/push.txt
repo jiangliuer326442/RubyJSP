@@ -1,0 +1,5 @@
+# APP推送相关配置文件
+
+jpush_url = 
+jpush_appkey = 
+jpush_secret = 

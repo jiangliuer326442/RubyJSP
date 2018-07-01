@@ -1,0 +1,3 @@
+# SQLITE配置文件
+enable = 1
+file = test.db

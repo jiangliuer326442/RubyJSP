@@ -1,0 +1,5 @@
+#七牛云存储配置文件
+qiniu_ACCESS_KEY = 
+qiniu_SECRET_KEY = 
+qiniu_bucketname = 
+qiniu_host = 

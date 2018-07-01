@@ -1,0 +1,5 @@
+# redis配置文件
+enable = 0
+host = 
+port = 
+database = 

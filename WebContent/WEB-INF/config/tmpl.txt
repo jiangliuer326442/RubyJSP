@@ -1,0 +1,6 @@
+# 模版配置文件
+left_delimiter = <%
+right_delimiter = %>
+tmpl_prefix = .html
+# 默认模板缓存时间（秒）
+cache_limits = 300

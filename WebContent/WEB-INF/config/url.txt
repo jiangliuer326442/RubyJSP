@@ -1,0 +1,4 @@
+# URL配置文件
+# URL路径 = 控制器
+# 默认路径（网站初始化时展示的页面）
+default = Default:index

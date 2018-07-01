@@ -1,0 +1,4 @@
+# 聊天服务器配置文件
+
+rongyun_appid = 
+rongyun_apptoken = 

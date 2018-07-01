@@ -1,0 +1,17 @@
+# 登录相关配置文件
+qq_app_ID = 
+qq_app_KEY = 
+qq_redirect_URI = 
+qq_scope = get_user_info
+
+wx_web_ID = 
+wx_web_KEY = 
+wx_app_ID = 
+wx_app_KEY = 
+wx_redirect_URI = 
+wx_scope = snsapi_login
+
+dd_app_ID = 
+dd_app_KEY = 
+dd_redirect_URI = 
+dd_scope = snsapi_login

@@ -1,0 +1,7 @@
+# MYSQL配置文件
+enable = 0
+host = 
+port = 
+user = 
+password = 
+database = 

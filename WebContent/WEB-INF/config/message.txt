@@ -1,0 +1,4 @@
+# 短信发送配置文件
+ronglian_ACCOUNT_SID = 
+ronglian_AUTH_TOKEN = 
+ronglian_AppID = 
