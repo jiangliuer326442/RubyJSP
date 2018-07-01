@@ -4,7 +4,7 @@
   WebContent\WEB-INF\config目录是项目所有配置文件的存放目录，其中路由配置文件为url.txt，配置内容格式为：default = Default:index，一行一个，default代表网站访问的路径为default.jsp（或者网站根目录/），对应的控制器为 Default.java 文件的 index 函数。
   
   src\webapp 是项目用户源代码存放的路径，Default.java文件就在该目录内。查看Default.java文件，代码如下：
-```
+```php
 package webapp;
 import java.io.IOException;
 import org.json.JSONArray;
@@ -26,7 +26,7 @@ public class Default extends ControllerBase {
   所有用户自定义的控制器类必须继承ControllerBase基类，这样，该控制器就能拿到ServletContext对象了（它是tomcat容器的上下文对象，你可能会用到它）。另外ControllerBase连接着模型和视图，通过_model对象拿到数据库模型实例。RubyJSP支持常用的数据库模型，包括 Mysql、Sqlite、Redis、MongoDB、ElasticSearch。调用assign方法给即将加载的模型分配变量，调用display方法，加载对应的视图。
   
   在这里 _model.sqlite_model 拿到了Sqlite模型的一个连接实例，你会问Sqlite数据库的配置信息在哪里呢？上面说过，WebContent\WEB-INF\config目录是项目所有配置文件的存放目录，所以这里有一个sqlite.txt文件就是它的配置文件，内容如下：
-```
+```txt
 enable = 1
 file = test.db
 ```
@@ -36,7 +36,7 @@ file = test.db
   
   项目的视图文件存放目录为 WebContent\WEB-INF\view，默认情况下，视图文件的扩展名为html，可在tmpl.txt配置文件中修改。查看index.html文件，内容如下：
   
-```
+```html
 <h1>你好，<%= student_name %>！</h1>
 ```
   student_name 需要和控制器中assign的变量名一致，<% 和 %>是模版分隔符，模版分隔符也可以在tmpl.txt中进行配置，传给模版解析器表明里面的内容是需要解析的，=代表是赋值语句。
