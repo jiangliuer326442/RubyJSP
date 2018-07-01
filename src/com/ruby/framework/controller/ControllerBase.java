@@ -5,20 +5,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
 import com.ruby.framework.model.DbManager;
-import com.ruby.framework.view.ViewInterface;
 
 public abstract class ControllerBase  implements ControllerInterface {
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
 	protected ServletContext context;
 	//一下内容可由上下文中提取
-	protected ViewInterface _view;
 	protected DbManager _model;
 	
 	/**
@@ -31,7 +30,6 @@ public abstract class ControllerBase  implements ControllerInterface {
 		this.request = request;
 		this.response = response;
 		//从上下文中解析模型和视图组件
-		this._view = (ViewInterface)context.getAttribute("_view");
 		this._model = (DbManager)context.getAttribute("_model");
 	}
 	
@@ -42,7 +40,6 @@ public abstract class ControllerBase  implements ControllerInterface {
 	@Override
 	public void load(String method) throws IOException{
 		init();
-		_view.init();
 		// TODO Auto-generated method stub
 		try {
 			this.getClass().getMethod(method, new Class[]{}).invoke(this, new Object[]{});
@@ -79,28 +76,13 @@ public abstract class ControllerBase  implements ControllerInterface {
 	public void destroy(){};
 
 	@Override
-	public void display(String tmpl) throws IOException {
-		display(tmpl,10);
-	}
-	
-	//返回字符串的添加模板
-	public void display(String tmpl, boolean is_cache) throws IOException {
-		response.setHeader("Content-type", "text/html;charset=UTF-8");
-        String html_string = _view.display(tmpl,is_cache);
-        response.getWriter().write(html_string);
-	}
-	
-	//返回字符串的添加模板
-	public void display(String tmpl, long cache_limits) throws IOException {
-		response.setHeader("Content-type", "text/html;charset=UTF-8");
-        String html_string = _view.display(tmpl,cache_limits);
-        response.getWriter().write(html_string);
+	public void display(String tmpl) throws IOException, ServletException {
+		request.getRequestDispatcher("view/"+tmpl+".jsp").forward(request, response);
 	}
 
 	@Override
 	public void assign(String key, String value) {
-		// TODO Auto-generated method stub
-		_view.assign(key, value);
+		request.setAttribute(key, value);
 	}
 
 	@Override

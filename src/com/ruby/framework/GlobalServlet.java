@@ -20,7 +20,7 @@ import com.ruby.framework.function.CommonFunction;
  * @author 方海亮
  * @date 2016年8月5日 上午10:02:25
  */
-@WebServlet("*.jsp")
+@WebServlet("*.do")
 public class GlobalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

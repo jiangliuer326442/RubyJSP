@@ -8,8 +8,6 @@ import javax.servlet.annotation.WebListener;
 
 import com.ruby.framework.model.DbManager;
 import com.ruby.framework.model.MysqlModel;
-import com.ruby.framework.view.ViewFactory;
-import com.ruby.framework.view.ViewInterface;
 
 import webapp.Initialize;
 
@@ -51,9 +49,6 @@ public class Frame implements ServletContextListener{
         context.setAttribute("__ROOT__", __ROOT__);
         //配置文件目录
         context.setAttribute("CONF_FOLDER", __ROOT__ + "config" + File.separator);
-		//加载视图组件
-		ViewInterface _view = ViewFactory.produce(context);
-		context.setAttribute("_view", _view);
 		dbmanager = DbManager.getInstance(context);
 		context.setAttribute("_model", dbmanager);
 		//以线程方式执行自定义过程

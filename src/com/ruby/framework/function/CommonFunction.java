@@ -258,7 +258,7 @@ public class CommonFunction {
 	// 解析路由
 	public static void dispatchUri(ServletContext ctx, HttpServletRequest request, HttpServletResponse response) {
 		// 解析路由
-		String url = request.getServletPath().substring(0, request.getServletPath().lastIndexOf(".jsp")).substring(1);
+		String url = request.getServletPath().substring(0, request.getServletPath().lastIndexOf(".do")).substring(1);
 		String url_file_path = ctx.getAttribute("CONF_FOLDER") + "url.txt";
 		// 获取URL对应的控制器
 		String Controller_path = CommonFunction.readPropertiesFile(url_file_path, url);

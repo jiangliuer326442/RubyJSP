@@ -3,6 +3,7 @@ package com.ruby.framework.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,8 +18,7 @@ public interface ControllerInterface {
 	//设置输出变量
 	public void assign(String key, String value);
 	//输出页面
-	public void display(String tmpl) throws IOException;
-	public void display(String tmpl, boolean is_cache) throws IOException;
+	public void display(String tmpl) throws IOException, ServletException;
 	//json输出
 	public void return_json(int status, String info, Object data) throws IOException;
 	//调用子类函数
